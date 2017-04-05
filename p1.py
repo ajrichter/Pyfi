@@ -13,6 +13,7 @@ style.use('ggplot')
 df = pd.read_csv('tesla.csv', parse_dates=True, index_col=0)
 #print(df.head())
 
+print("Testing Open Prices")
 print(df[['Open' , 'High']].head())
 df['Adj Close'].plot()
 plt.show()
