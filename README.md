@@ -1,4 +1,4 @@
-# PYFi
+# PY-FI
 I am using Python and the Pandas library to learn how to analyze Stocks 
 
 I am working through the tutorials  here:  
