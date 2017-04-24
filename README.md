@@ -7,7 +7,7 @@
 I am working through the tutorials here to use Python to analyze Stocks:  
 [Python for Finance](https://pythonprogramming.net/stock-data-manipulation-python-programming-for-finance/)
 
-`p**.py` corresponds to the tutorial numbers.
+`p##.py` corresponds to the tutorial numbers.
 
 `*.csv` is an output file which stores stock data after downloading.
 
