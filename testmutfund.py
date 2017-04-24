@@ -1,10 +1,12 @@
 # I am going to test getting example mut fund data
+# Awesome! I tested and this matches the data available online
+# Meaning: I was doing what I intended to
 import datetime as dt
 import pandas as pd
 import pandas_datareader.data as web
 
 start = dt.datetime(2017, 4, 1)
-end = dt.datetime(2017, 4, 20)
+end = dt.datetime(2017, 4, 21)
 
 print("JDST")
 jd = web.DataReader("JDST", 'yahoo', start, end)

@@ -1,4 +1,6 @@
 # Python for Finance
+## Libraries
+## Pandas, MatPlotLib, BeautifulSoup,
 I am using Python and the Pandas library to analyze Stocks.
 
 I am working through the tutorials here:  
