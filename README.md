@@ -1,9 +1,13 @@
 # Python for Finance
-## Libraries
+## Libraries Used:
 ## Pandas, MatPlotLib, BeautifulSoup,
-I am using Python and the Pandas library to analyze Stocks.
 
-I am working through the tutorials here:  
+I am working through the tutorials here to use Python to analyze Stocks:  
 [Python for Finance](https://pythonprogramming.net/stock-data-manipulation-python-programming-for-finance/)
 
-This is a repository to store the code and files I will be using.
+[Pandas_Datareader Docs](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html)
+
+The files name pX.py correspond to the tutorial numbers.
+.csv's are the output files of the data accessed
+
+testmutfund.py is my file to test accessing individual stocks, specifically mutual funds.
