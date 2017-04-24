@@ -1,18 +1,20 @@
 # I am going to test getting example mut fund data
-import bs4 as bs
 import datetime as dt
-import matplotlib.pyplot as plt
-from matplotlib import style
-import os
 import pandas as pd
 import pandas_datareader.data as web
-import pickle
-import requests
-import csv
 
-style.use('ggplot')
+start = dt.datetime(2017, 4, 1)
+end = dt.datetime(2017, 4, 20)
 
-with open('mutual.csv', 'rb') as cf:
-        spamreader = csv.reader(cf, delimiter=',', quotechar='|')
-        for row in spamreader:
-            print ', '.join(row)
+print("JDST")
+jd = web.DataReader("JDST", 'yahoo', start, end)
+print(jd[['Adj Close']].tail())
+print("JNUG")
+ju = web.DataReader("JNUG", 'yahoo', start, end)
+print(ju[['Adj Close']].tail())
+print("VFFVX")
+v55 = web.DataReader("VFFVX", 'yahoo', start, end)
+print(v55[['Adj Close']].tail())
+print("SPY")
+spy = web.DataReader("SPY", 'yahoo', start, end)
+print(spy[['Adj Close']].tail())
