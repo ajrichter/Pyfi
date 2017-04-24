@@ -10,7 +10,9 @@ I am working through the tutorials here to use Python to analyze Stocks:
 [Pandas_Datareader Docs](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html)
 
 The files named
-    pX.py
+```python
+pX.py
+```
 correspond to the tutorial numbers.
 .csv's are the output files of the data accessed
 
