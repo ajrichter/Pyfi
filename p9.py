@@ -1,12 +1,13 @@
 # Using Machine Learning to see how companies are correlated
 # What if we use pricing to see how movement of other companies might give us an edge?
-# Features: Define and Labels: Target i.e. Buy/Sell/Hold
+# Features: Define Something
+# Labels: A Target Buy/Sell/Hold
 # Based on the question within 7 days did price go up? or fall? or neither
-
 import numpy as np
 import pandas as pd
 import pickle
 # Per company basis. Take in data from all companies
+# First Mover and Lagging companies folllow
 # Looking for a few days lag where a company is correlated a day
 # or two after another company
 def process_data_for_labels(ticker):

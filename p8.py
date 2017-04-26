@@ -42,7 +42,7 @@ def get_data_from_yahoo(reload_sp500=False):
 
     for ticker in tickers:
         if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
-            # Help with BRK-B
+            # Fixes hyphen problem in BRK-B
             # s = data.DataReader(security.replace(".","-"),"yahoo",start, end )["Adj Close"]
             df = web.DataReader(ticker.replace(".","-"), "yahoo", start, end)
             df.to_csv('stock_dfs/{}.csv'.format(ticker))
