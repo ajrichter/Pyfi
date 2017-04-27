@@ -1,8 +1,8 @@
 # Mapping tutorial on pyprogramming.net
+from collections import Counter
 import numpy as np
 import pandas as pd
 import pickle
-from
 
 def process_data_for_labels(ticker):
     hm_days = 7
@@ -27,7 +27,7 @@ def buy_sell_hold(*args):
                 return -1
         return 0
 
-def extract_featureset(ticker):
+def extract_featuresets(ticker):
         tickers, df = process_data_for_labels(ticker)
 
         df['{}_target'.format(ticker)] = list(map( buy_sell_hold,
@@ -40,5 +40,20 @@ def extract_featureset(ticker):
                                                                                 df['{}_7d'.format(ticker)],
                                                                                 ))
         vals = df['{}_target'.format(ticker)].values.tolist()
-        string_vals = [str(i) for i in vals]
+        str_vals = [str(i) for i in vals]
         print('Data spread:', Counter(str_vals))
+        df.fillna(0, inplace=True)
+
+        df = df.replace([np.inf, -np.inf], np.nan)
+        df.dropna(inplace=True)
+
+        df_vals = df[[ticker for ticker in tickers]].pct_change()
+        df_vals = df_vals.replace([np.inf, -np.inf], 0)
+        df_vals.fillna(0, inplace=True)
+        # X is feature sets. y is labels
+        X = df_vals.values
+        y = df['{}_target'.format(ticker)].values
+
+        return X, y, df
+
+extract_featuresets('XOM')
