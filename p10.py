@@ -15,4 +15,13 @@ def process_data_for_labels(ticker):
     df.fillna(0, inplace=True)
     return tickers, df
 
-def buy_sell_hold()
+def buy_sell_hold(*args):
+        cols = [c for c in args]
+        requirement = 0.02
+        # means 2 % in 7 days
+        for col in cols:
+            if col > requirement:
+                return 1
+            if col < -requirement:
+                return -1
+        return 0
