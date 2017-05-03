@@ -13,18 +13,19 @@ from sklearn import svm, neighbors, model_selection
 from sklearn.ensemble import VotingClassifier, RandomForestClassifier
 
 style.use('ggplot')
+sectors = {}
 
 def save_sp500_tickers():
     resp = requests.get('http://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
     soup = bs.BeautifulSoup(resp.text, 'lxml')
     table = soup.find('table', {'class': 'wikitable sortable'})
     tickers = []
-    sectors = []
-    for row in table.findAll('tr')[1:10]:
+    for row in table.findAll('tr')[65:75]:
         ticker = row.findAll('td')[0].text
         tickers.append(ticker)
         sector = row.findAll('td')[3].text
-        sectors.append(sector)
+        sectors[ticker] = sector
+        print(ticker, "is in", sectors[ticker])
 
     with open("sp500tickers.pickle","wb") as f:
         pickle.dump(tickers,f)
@@ -183,3 +184,4 @@ def do_ml(ticker):
     return confidence
 
 save_sp500_tickers()
+print(sectors['HRB'])
