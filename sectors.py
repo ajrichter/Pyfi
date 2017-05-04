@@ -44,6 +44,8 @@ def save_sp500_tickers():
     return tickers
 
 # All tickers, their corresponding sectors, and all the tickers in a sector have been pickled
+# Weight by MktCap. Then show changes over time. Right?
+
 
 def get_data_from_yahoo(reload_sp500=False):
 
