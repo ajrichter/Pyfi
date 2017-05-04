@@ -14,24 +14,36 @@ from sklearn.ensemble import VotingClassifier, RandomForestClassifier
 
 style.use('ggplot')
 sectors = {}
+groups = {}
 
 def save_sp500_tickers():
     resp = requests.get('http://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
     soup = bs.BeautifulSoup(resp.text, 'lxml')
     table = soup.find('table', {'class': 'wikitable sortable'})
     tickers = []
-    for row in table.findAll('tr')[65:75]:
+    for row in table.findAll('tr')[1:]:
         ticker = row.findAll('td')[0].text
         tickers.append(ticker)
         sector = row.findAll('td')[3].text
         sectors[ticker] = sector
-        print(ticker, "is in", sectors[ticker])
+        if sector in groups:
+            groups[sector].append(ticker)
+        else:
+            groups[sector] = [ticker]
+
+    for gs in sorted(groups.keys()):
+        print(gs, "is", groups[gs])
+        print()
 
     with open("sp500tickers.pickle","wb") as f:
         pickle.dump(tickers,f)
 
+    pickle.dump(sectors, open("spSectors.pickle","wb"))
+    pickle.dump(groups, open("spGroups.pickle","wb"))
+
     return tickers
 
+# All tickers, their corresponding sectors, and all the tickers in a sector have been pickled
 
 def get_data_from_yahoo(reload_sp500=False):
 
@@ -184,4 +196,3 @@ def do_ml(ticker):
     return confidence
 
 save_sp500_tickers()
-print(sectors['HRB'])

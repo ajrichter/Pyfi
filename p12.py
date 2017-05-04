@@ -20,7 +20,7 @@ def save_sp500_tickers():
     table = soup.find('table', {'class': 'wikitable sortable'})
     tickers = []
     sectors = []
-    for row in table.findAll('tr')[1:10]:
+    for row in table.findAll('tr')[1:]:
         ticker = row.findAll('td')[0].text
         tickers.append(ticker)
         sector = row.findAll('td')[3].text
