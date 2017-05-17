@@ -1,18 +1,23 @@
 # Python for Finance
 ### Libraries
 * Pandas
-* MatPlotLib
 * BeautifulSoup
+* MatPlotLib
 
-I am working through the tutorials here to use Python to analyze Stocks:  
+Using these tutorials here to use Python to analyze Stocks:  
 [Python for Finance](https://pythonprogramming.net/stock-data-manipulation-python-programming-for-finance/)
 
-`p##.py` corresponds to the tutorial numbers.
+`p##.py` corresponds to the tutorials
 
-`*.csv` is an output file which stores stock data after downloading.
+`*.csv` is an output file which stores stock data
 
-`testmutfund.py` is my file to test accessing individual stocks, specifically mutual funds.
+`testmutfund.py` is my file to test accessing individual stocks
 
-Pandas_Datareader is used to access Stock prices.
-[The documentation](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html)
-is very concise and helpful.
+Pandas_Datareader [documentation](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html)
+is helpful.
+
+Pandas_Datareader has a yahoo function which allows you to get a simple Open-High-Low-Close-Volume-AdjClose for a stock but, I want Market Cap.
+
+Then I can show how sectors change over time as their value changes
+
+We will have to play with the psuedo-Yahoo Finance API...

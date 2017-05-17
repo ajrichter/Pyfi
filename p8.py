@@ -41,13 +41,13 @@ def get_data_from_yahoo(reload_sp500=False):
     end = dt.datetime(2016, 12, 31)
 
     for ticker in tickers:
-        if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
+        #if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
             # Fixes hyphen problem in BRK-B
             # s = data.DataReader(security.replace(".","-"),"yahoo",start, end )["Adj Close"]
             df = web.DataReader(ticker.replace(".","-"), "yahoo", start, end)
             df.to_csv('stock_dfs/{}.csv'.format(ticker))
-        else:
-            print('Already have {}'.format(ticker))
+        #else:
+            #print('Already have {}'.format(ticker))
 
 
 def compile_data():
@@ -101,4 +101,4 @@ def visualize_data():
     #plt.savefig("sp500correlations.png", dpi = (300))
     plt.show()
 
-visualize_data()
+get_data_from_yahoo()

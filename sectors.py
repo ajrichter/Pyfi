@@ -17,6 +17,9 @@ style.use('ggplot')
 sectors = {}
 # All stocks in a sector
 groups = {}
+# list of sp500 ETFS
+etfs = []
+
 
 def save_sectors():
     resp = requests.get('http://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
@@ -74,5 +77,21 @@ def get_data_from_yahoo(reload_sp500=False):
         else:
             print('Already have {}'.format(ticker))
 
+def get_SP500():
+    # SPDR
+    etfs.append('SPY')
+    # Blackrock
+    etfs.append('IVV')
+    # Vanguard
+    etfs.append('VOO')
+    # Schwab MUTF
+    etfs.append('SWPPX')
 
-save_sectors()
+    start = dt.datetime(2007, 1, 1)
+    end = dt.datetime(2017, 5, 10)
+
+    for e in etfs:
+        eval = web.DataReader(e, 'yahoo', start, end)
+        print(e, jd[['Adj Close']].tail())
+
+get_SP500()
